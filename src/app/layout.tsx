@@ -36,7 +36,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('fga_aperture_seen')){document.documentElement.classList.add('fga-aperture-done');}}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="font-sans bg-[#0E0F11] text-[#F4F2EE] min-h-screen selection:bg-[#C27D4B] selection:text-[#0E0F11]">
         <SmoothScrollProvider>
           {children}

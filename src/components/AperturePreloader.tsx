@@ -9,19 +9,9 @@ interface AperturePreloaderProps {
 }
 
 export default function AperturePreloader({ onComplete, forceShow = false }: AperturePreloaderProps) {
-  // Start with true immediately so the opaque preloader renders on initial paint/SSR
-  // preventing any flash of the underlying hero banner
-  const [shouldRender, setShouldRender] = useState(() => {
-    if (forceShow) return true;
-    if (typeof window !== 'undefined') {
-      try {
-        return !sessionStorage.getItem('fga_aperture_seen');
-      } catch {
-        return true;
-      }
-    }
-    return true;
-  });
+  // Always initialize to true on both server and client to guarantee 100% identical SSR/hydration tree
+  // Early suppression on subsequent visits is handled seamlessly by html.fga-aperture-done in <head>
+  const [shouldRender, setShouldRender] = useState(true);
   const [hours, setHours] = useState('00.00');
   const [progressPercent, setProgressPercent] = useState(0);
 
@@ -40,13 +30,12 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
         if (onComplete) onComplete();
         return;
       }
+      if (forceShow) {
+        document.documentElement.classList.remove('fga-aperture-done');
+      }
     } catch {
       // ignore storage errors
     }
-  }, [forceShow, onComplete]);
-
-  useEffect(() => {
-    if (!shouldRender) return;
 
     // Prevent body scroll during preloader
     const originalOverflow = document.body.style.overflow;
@@ -59,6 +48,7 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
         onComplete: () => {
           try {
             sessionStorage.setItem('fga_aperture_seen', 'true');
+            document.documentElement.classList.add('fga-aperture-done');
           } catch {
             // ignore
           }
@@ -68,6 +58,9 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
           gsap.to(containerRef.current, {
             display: 'none',
             duration: 0.1,
+            onComplete: () => {
+              setShouldRender(false);
+            },
           });
         },
       });
@@ -154,6 +147,7 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
 
   return (
     <div
+      id="aperture-preloader"
       ref={containerRef}
       className="fixed inset-0 z-[9999] pointer-events-auto select-none overflow-hidden bg-[#0E0F11]"
       style={{ zIndex: 99999, backgroundColor: '#0E0F11' }}

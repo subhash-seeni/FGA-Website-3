@@ -53,6 +53,11 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* When sessionStorage has already recorded aperture seen, immediately hide it before render */
+html.fga-aperture-done #aperture-preloader {
+  display: none !important;
+}
+
 /* Mobile ergonomics & touch responsiveness */
 @media (max-width: 768px) {
   /* Prevent iOS Safari 16px input zoom while keeping layout proportion */
