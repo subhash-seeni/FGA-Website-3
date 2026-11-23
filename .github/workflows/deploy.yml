@@ -44,7 +44,7 @@ jobs:
         run: npm run build
         env:
           STATIC_EXPORT: 'true'
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path || '/FGA-Website-3' }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

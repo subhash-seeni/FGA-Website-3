@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { getAssetPath } from '@/lib/basePath';
 
 interface NavbarProps {
   theme?: 'dark' | 'light' | 'auto';
@@ -128,7 +129,7 @@ export default function Navbar({ theme = 'auto', onBeginLease }: NavbarProps) {
           <Link href="/" className="group flex items-center select-none" aria-label="Firstgen Assets Homepage">
             <div className="relative h-8 md:h-9 w-40 md:w-48">
               <Image
-                src="/images/firstgen-logo-transparent.png"
+                src={getAssetPath('/images/firstgen-logo-transparent.png')}
                 alt="Firstgen Assets"
                 fill
                 className="object-contain object-left transition-all duration-300"
@@ -230,7 +231,7 @@ export default function Navbar({ theme = 'auto', onBeginLease }: NavbarProps) {
           <div className="pb-4 border-b border-[#C27D4B]/20">
             <div className="relative h-8 w-44 mb-2">
               <Image
-                src="/images/firstgen-logo-transparent.png"
+                src={getAssetPath('/images/firstgen-logo-transparent.png')}
                 alt="Firstgen Assets"
                 fill
                 className="object-contain object-left"

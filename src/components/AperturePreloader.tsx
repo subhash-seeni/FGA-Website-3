@@ -9,7 +9,19 @@ interface AperturePreloaderProps {
 }
 
 export default function AperturePreloader({ onComplete, forceShow = false }: AperturePreloaderProps) {
-  const [shouldRender, setShouldRender] = useState(false);
+  // Start with true immediately so the opaque preloader renders on initial paint/SSR
+  // preventing any flash of the underlying hero banner
+  const [shouldRender, setShouldRender] = useState(() => {
+    if (forceShow) return true;
+    if (typeof window !== 'undefined') {
+      try {
+        return !sessionStorage.getItem('fga_aperture_seen');
+      } catch {
+        return true;
+      }
+    }
+    return true;
+  });
   const [hours, setHours] = useState('00.00');
   const [progressPercent, setProgressPercent] = useState(0);
 
@@ -20,18 +32,17 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check sessionStorage
+    // If not in forceShow mode, check sessionStorage
     try {
       const seen = sessionStorage.getItem('fga_aperture_seen');
       if (seen && !forceShow) {
+        setShouldRender(false);
         if (onComplete) onComplete();
         return;
       }
     } catch {
       // ignore storage errors
     }
-
-    setShouldRender(true);
   }, [forceShow, onComplete]);
 
   useEffect(() => {
@@ -144,7 +155,7 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] pointer-events-auto select-none overflow-hidden"
+      className="fixed inset-0 z-[9999] pointer-events-auto select-none overflow-hidden bg-[#0E0F11]"
       aria-label="Aperture Preloader"
       role="dialog"
       aria-modal="true"

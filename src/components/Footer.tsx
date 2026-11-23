@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getAssetPath } from '@/lib/basePath';
 
 export default function Footer() {
   return (
@@ -14,7 +15,7 @@ export default function Footer() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="relative w-48 h-12">
               <Image
-                src="/images/firstgen-logo-transparent.png"
+                src={getAssetPath('/images/firstgen-logo-transparent.png')}
                 alt="Firstgen Assets Private Limited"
                 fill
                 className="object-contain object-left"

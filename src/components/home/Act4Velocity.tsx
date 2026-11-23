@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import DaylightShaderBackground from '@/components/DaylightShaderBackground';
+import { getAssetPath } from '@/lib/basePath';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -245,7 +246,7 @@ export default function Act4Velocity() {
               <div className="md:col-span-4 flex flex-col gap-4">
                 <div className="relative w-44 h-11">
                   <Image
-                    src="/images/firstgen-logo-transparent.png"
+                    src={getAssetPath('/images/firstgen-logo-transparent.png')}
                     alt="Firstgen Assets Private Limited"
                     fill
                     className="object-contain object-left"
