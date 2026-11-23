@@ -78,7 +78,7 @@ export default function Act3Configurator() {
 
   return (
     <section
-      className="relative w-full bg-[#0E0F11] text-[#F4F2EE] border-b border-[#C27D4B]/20 py-24 md:py-32 select-none overflow-hidden"
+      className="relative w-full bg-[#0E0F11] text-[#F4F2EE] border-b border-[#C27D4B]/20 py-16 sm:py-24 md:py-32 select-none overflow-hidden"
       id="configurator"
       data-nav-theme="dark"
     >
@@ -91,17 +91,17 @@ export default function Act3Configurator() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         {/* Header Eyebrow & Title */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#C27D4B]/20 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-12 border-b border-[#C27D4B]/20 mb-8 sm:mb-12">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-1.5 h-1.5 bg-[#C27D4B]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#C27D4B]">
+              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.25em] text-[#C27D4B]">
                 LEASE CALCULATOR
               </span>
             </div>
-            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-semibold text-[#F4F2EE] tracking-tight">
+            <h2 className="font-sans text-2xl sm:text-4xl md:text-5xl font-semibold text-[#F4F2EE] tracking-tight">
               Estimate Your Lease.
             </h2>
           </div>
@@ -157,10 +157,10 @@ export default function Act3Configurator() {
           </div>
 
           {/* Right 45%: Swiss-Watch Precision Monospace Control Panel */}
-          <div className="lg:col-span-5 bg-[#17191D] border border-[#C27D4B]/30 p-6 sm:p-8 flex flex-col gap-8 shadow-2xl relative">
+          <div className="lg:col-span-5 bg-[#17191D] border border-[#C27D4B]/30 p-5 sm:p-8 flex flex-col gap-6 sm:gap-8 shadow-2xl relative">
             {/* Top Control Bar: Category Switch */}
             <div>
-              <label className="block text-[10px] font-mono uppercase tracking-[0.25em] text-[#C27D4B] mb-3">
+              <label className="block text-[10px] font-mono uppercase tracking-[0.25em] text-[#C27D4B] mb-2 sm:mb-3">
                 01 · SELECT ASSET VERTICAL
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -171,10 +171,10 @@ export default function Act3Configurator() {
                       <button
                         key={slug}
                         onClick={() => handleCategoryChange(slug)}
-                        className={`py-2 px-2 text-[10px] font-mono uppercase tracking-wider text-center border transition-all ${
+                        className={`min-h-[44px] py-2 px-2 text-[10px] sm:text-xs font-mono uppercase tracking-wider text-center border transition-all flex items-center justify-center ${
                           isSel
                             ? 'bg-[#C27D4B] text-[#0E0F11] font-bold border-[#C27D4B]'
-                            : 'bg-[#0E0F11] text-[#F4F2EE]/60 border-white/10 hover:border-[#C27D4B]/40 hover:text-white'
+                            : 'bg-[#0E0F11] text-[#F4F2EE]/60 border-white/10 hover:border-[#C27D4B]/40 hover:text-white active:bg-white/5'
                         }`}
                       >
                         {slug === 'luxury-fleet'
@@ -202,7 +202,7 @@ export default function Act3Configurator() {
               <select
                 value={selectedAssetSlug}
                 onChange={(e) => setSelectedAssetSlug(e.target.value)}
-                className="w-full bg-[#0E0F11] border border-[#C27D4B]/40 text-[#F4F2EE] font-mono text-xs py-3 px-3.5 focus:outline-none focus:border-[#C27D4B] transition-colors appearance-none cursor-pointer"
+                className="w-full bg-[#0E0F11] border border-[#C27D4B]/40 text-[#F4F2EE] font-mono text-xs py-3 px-3.5 min-h-[44px] focus:outline-none focus:border-[#C27D4B] transition-colors cursor-pointer"
               >
                 {categoryAssets.map((asset) => (
                   <option key={asset.slug} value={asset.slug} className="bg-[#0E0F11] text-[#F4F2EE]">
@@ -222,14 +222,16 @@ export default function Act3Configurator() {
                   {quantity} {quantity === 1 ? 'UNIT' : 'UNITS'}
                 </span>
               </div>
-              <input
-                type="range"
-                min="1"
-                max="20"
-                value={quantity}
-                onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-                className="w-full accent-[#C27D4B] bg-[#0E0F11] h-1.5 cursor-pointer appearance-none border border-white/10"
-              />
+              <div className="py-2">
+                <input
+                  type="range"
+                  min="1"
+                  max="20"
+                  value={quantity}
+                  onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+                  className="w-full accent-[#C27D4B] bg-[#0E0F11] h-2 cursor-pointer appearance-none border border-white/10"
+                />
+              </div>
               <div className="flex justify-between text-[9px] font-mono text-[#F4F2EE]/40 mt-1">
                 <span>01 UNIT</span>
                 <span>10 UNITS</span>
@@ -247,22 +249,24 @@ export default function Act3Configurator() {
                   {tenure} MONTHS
                 </span>
               </div>
-              <input
-                type="range"
-                min={activeAsset.minTenureMonths}
-                max={activeAsset.maxTenureMonths}
-                value={tenure}
-                onChange={(e) => setTenure(parseInt(e.target.value, 10))}
-                className="w-full accent-[#C27D4B] bg-[#0E0F11] h-1.5 cursor-pointer appearance-none border border-white/10"
-              />
+              <div className="py-2">
+                <input
+                  type="range"
+                  min={activeAsset.minTenureMonths}
+                  max={activeAsset.maxTenureMonths}
+                  value={tenure}
+                  onChange={(e) => setTenure(parseInt(e.target.value, 10))}
+                  className="w-full accent-[#C27D4B] bg-[#0E0F11] h-2 cursor-pointer appearance-none border border-white/10"
+                />
+              </div>
               <div className="flex justify-between text-[9px] font-mono text-[#F4F2EE]/40 mt-1">
-                <span>{activeAsset.minTenureMonths}M (MINIMUM)</span>
+                <span>{activeAsset.minTenureMonths}M (MIN)</span>
                 {tenureProgress > 0 && (
                   <span className="text-[#C27D4B]">
-                    -{(tenureProgress * 8).toFixed(1)}% EFFICIENCY DISCOUNT
+                    -{(tenureProgress * 8).toFixed(1)}% EFFICIENCY
                   </span>
                 )}
-                <span>{activeAsset.maxTenureMonths}M (MAXIMUM)</span>
+                <span>{activeAsset.maxTenureMonths}M (MAX)</span>
               </div>
             </div>
 

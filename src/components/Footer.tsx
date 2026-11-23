@@ -9,16 +9,21 @@ export default function Footer() {
   return (
     <footer data-nav-theme="light" className="w-full bg-[#F4F2EE] text-[#0E0F11] border-t border-[#0E0F11]/10 selection:bg-[#0E0F11] selection:text-[#F4F2EE]">
       {/* Top Architectural Banner */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 lg:py-20 border-b border-[#0E0F11]/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-12 sm:py-16 lg:py-20 border-b border-[#0E0F11]/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Brand & Mission on Limestone with authentic firstgen-logo-transparent.png */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="relative w-48 h-12">
+            <div
+              className="relative w-48 h-12 max-w-[192px]"
+              style={{ position: 'relative', width: '192px', height: '48px', maxWidth: '100%' }}
+            >
               <Image
                 src={getAssetPath('/images/firstgen-logo-transparent.png')}
                 alt="Firstgen Assets Private Limited"
                 fill
+                sizes="192px"
                 className="object-contain object-left"
+                style={{ maxHeight: '100%', maxWidth: '100%' }}
               />
             </div>
             <p className="text-sm font-sans text-[#0E0F11]/75 leading-relaxed max-w-md">

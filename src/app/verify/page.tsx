@@ -156,8 +156,8 @@ export default function VerifyPage() {
     <main data-nav-theme="dark" className="relative min-h-screen bg-[#0E0F11] text-[#F4F2EE] selection:bg-[#C27D4B] selection:text-[#0E0F11]">
       <Navbar />
 
-      <section data-nav-theme="dark" className="pt-36 pb-24 md:pt-44 md:pb-32 border-b border-[#C27D4B]/20">
-        <div className="max-w-5xl mx-auto px-6 md:px-10">
+      <section data-nav-theme="dark" className="pt-28 pb-16 sm:pt-36 sm:pb-24 md:pt-44 md:pb-32 border-b border-[#C27D4B]/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-10">
           {/* Header */}
           <div className="mb-12">
             <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B] mb-2">
@@ -269,11 +269,16 @@ export default function VerifyPage() {
 
               {/* Document-by-Document Findings Table */}
               <div className="mb-8">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#C27D4B] block mb-4">
-                  Document Verification Status:
-                </span>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-[#C27D4B]">
+                    Document Verification Status:
+                  </span>
+                  <span className="text-[10px] font-mono text-[#C27D4B]/60 sm:hidden">
+                    ← Swipe to view table →
+                  </span>
+                </div>
 
-                <div className="border border-white/10 overflow-x-auto">
+                <div className="border border-white/10 overflow-x-auto no-scrollbar">
                   <table className="w-full text-left font-mono text-xs border-collapse min-w-[700px]">
                     <thead>
                       <tr className="bg-[#0E0F11] border-b border-white/10 text-white/50 text-[10px] uppercase">

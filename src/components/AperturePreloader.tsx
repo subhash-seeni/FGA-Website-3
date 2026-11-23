@@ -156,6 +156,7 @@ export default function AperturePreloader({ onComplete, forceShow = false }: Ape
     <div
       ref={containerRef}
       className="fixed inset-0 z-[9999] pointer-events-auto select-none overflow-hidden bg-[#0E0F11]"
+      style={{ zIndex: 99999, backgroundColor: '#0E0F11' }}
       aria-label="Aperture Preloader"
       role="dialog"
       aria-modal="true"

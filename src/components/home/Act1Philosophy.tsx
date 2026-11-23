@@ -130,11 +130,11 @@ export default function Act1Philosophy() {
         </div>
 
         {/* Content Layer (Limestone Hero) */}
-        <div className="relative z-10 w-full h-full flex flex-col justify-between p-6 sm:p-10 md:p-16 max-w-7xl mx-auto">
+        <div className="relative z-10 w-full h-full flex flex-col justify-between p-4 sm:p-8 md:p-16 max-w-7xl mx-auto">
           {/* Top Eyebrow */}
-          <div className="flex items-center justify-between pt-16 md:pt-14 text-xs font-mono uppercase tracking-[0.25em] text-[#0E0F11]/60">
+          <div className="flex items-center justify-between pt-14 sm:pt-16 md:pt-14 text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#0E0F11]/60">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#C27D4B]" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#C27D4B]" />
               <span className="font-semibold text-[#0E0F11]">AHMEDABAD · GUJARAT · INDIA</span>
             </div>
             <div className="hidden sm:block text-[11px] tracking-[0.2em] text-[#C27D4B]">
@@ -145,17 +145,17 @@ export default function Act1Philosophy() {
           {/* Center Oversized Editorial Display Headline */}
           <div
             ref={headlineRef}
-            className="my-auto text-center flex flex-col items-center justify-center transform-gpu will-change-transform"
+            className="my-auto text-center flex flex-col items-center justify-center transform-gpu will-change-transform py-4"
           >
-            <div className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#C27D4B] mb-4">
+            <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#C27D4B] mb-2 sm:mb-4">
               Firstgen Assets Private Limited
             </div>
-            <h1 className="font-sans font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tighter text-[#0E0F11] leading-[0.92]">
+            <h1 className="font-sans font-bold text-3xl sm:text-6xl md:text-7xl lg:text-[7rem] tracking-tighter text-[#0E0F11] leading-[0.94] sm:leading-[0.92]">
               Assets That Work.
               <br />
               <span className="text-[#C27D4B] font-light">Capital That Stays.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-xs sm:text-sm font-mono tracking-wider text-[#0E0F11]/60 uppercase">
+            <p className="mt-4 sm:mt-6 max-w-xl text-[11px] sm:text-sm font-mono tracking-wider text-[#0E0F11]/60 uppercase px-2">
               Operating Leases for High-Value Corporate Fleets, Heavy Machinery & IT Compute
             </p>
           </div>
@@ -163,40 +163,40 @@ export default function Act1Philosophy() {
           {/* Minimalist Bottom Strip with 4 Hairline-Divided Figures */}
           <div
             ref={bottomStripRef}
-            className="w-full border-t border-[#0E0F11]/12 pt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center md:text-left"
+            className="w-full border-t border-[#0E0F11]/12 pt-3 sm:pt-6 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 text-left"
           >
-            <div className="md:border-r border-[#0E0F11]/12 pr-4">
-              <div className="font-mono text-xs sm:text-sm font-bold text-[#0E0F11] tracking-wider uppercase">
+            <div className="border-r border-[#0E0F11]/12 pr-2 sm:pr-4">
+              <div className="font-mono text-[11px] sm:text-xs md:text-sm font-bold text-[#0E0F11] tracking-wider uppercase">
                 06+ ASSET CATEGORIES
               </div>
-              <div className="text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5">
+              <div className="text-[9px] sm:text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5 truncate">
                 Luxury · Heavy · Enterprise
               </div>
             </div>
 
-            <div className="md:border-r border-[#0E0F11]/12 pr-4">
-              <div className="font-mono text-xs sm:text-sm font-bold text-[#C27D4B] tracking-wider uppercase">
+            <div className="md:border-r border-[#0E0F11]/12 pr-2 sm:pr-4">
+              <div className="font-mono text-[11px] sm:text-xs md:text-sm font-bold text-[#C27D4B] tracking-wider uppercase">
                 48 HRS DELIVERY
               </div>
-              <div className="text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5">
+              <div className="text-[9px] sm:text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5 truncate">
                 Western India Priority SLA
               </div>
             </div>
 
-            <div className="md:border-r border-[#0E0F11]/12 pr-4">
-              <div className="font-mono text-xs sm:text-sm font-bold text-[#0E0F11] tracking-wider uppercase">
+            <div className="border-r md:border-r border-[#0E0F11]/12 pr-2 sm:pr-4">
+              <div className="font-mono text-[11px] sm:text-xs md:text-sm font-bold text-[#0E0F11] tracking-wider uppercase">
                 ₹0 DOWN PAYMENT
               </div>
-              <div className="text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5">
+              <div className="text-[9px] sm:text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5 truncate">
                 True Off-Balance Sheet
               </div>
             </div>
 
             <div>
-              <div className="font-mono text-xs sm:text-sm font-bold text-[#C27D4B] tracking-wider uppercase">
+              <div className="font-mono text-[11px] sm:text-xs md:text-sm font-bold text-[#C27D4B] tracking-wider uppercase">
                 100% DIGITAL
               </div>
-              <div className="text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5">
+              <div className="text-[9px] sm:text-[10px] font-mono text-[#0E0F11]/50 uppercase tracking-widest mt-0.5 truncate">
                 eSign & eNACH Protocol
               </div>
             </div>

@@ -233,18 +233,35 @@ export default function Act2ScaleShift() {
               </span>
             </div>
 
-            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F4F2EE] leading-tight">
+            <h2 className="font-sans text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#F4F2EE] leading-tight">
               {currentChapter.headline}
             </h2>
 
-            <p className="mt-4 text-xs sm:text-sm font-sans text-[#F4F2EE]/70 leading-relaxed max-w-lg">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm font-sans text-[#F4F2EE]/70 leading-relaxed max-w-lg">
               {currentChapter.description}
             </p>
 
+            {/* Mobile-only switcher tabs (Prominently placed above asset cards for fast touch switching) */}
+            <div className="flex md:hidden items-center gap-1.5 sm:gap-2 mt-5">
+              {chapters.map((ch, idx) => (
+                <button
+                  key={ch.number}
+                  onClick={() => setActiveChapterIndex(idx)}
+                  className={`flex-1 min-h-[44px] px-2 py-2.5 text-[11px] font-mono uppercase tracking-wider transition-all border flex items-center justify-center ${
+                    activeChapterIndex === idx
+                      ? 'bg-[#C27D4B] text-[#0E0F11] font-bold border-[#C27D4B] shadow-md'
+                      : 'bg-[#17191D] text-white/60 border-white/10 active:bg-white/5'
+                  }`}
+                >
+                  {ch.number} {ch.category.split(' ')[0]}
+                </button>
+              ))}
+            </div>
+
             {/* Two Key Assets Featured */}
-            <div className="mt-8 pt-6 border-t border-[#C27D4B]/20 space-y-4">
+            <div className="mt-6 md:mt-8 pt-5 md:pt-6 border-t border-[#C27D4B]/20 space-y-3 sm:space-y-4">
               {/* Asset 1 */}
-              <div className="p-4 bg-[#17191D] border border-white/[0.08] hover:border-[#C27D4B]/50 transition-colors flex items-center justify-between">
+              <div className="p-3.5 sm:p-4 bg-[#17191D] border border-white/[0.08] hover:border-[#C27D4B]/50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
                 <div>
                   <div className="text-[10px] font-mono text-[#C27D4B] uppercase tracking-wider">
                     FLAGSHIP MODEL
@@ -256,7 +273,7 @@ export default function Act2ScaleShift() {
                     Tenure: {currentChapter.asset1.tenure}
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right border-t sm:border-t-0 border-white/[0.06] pt-1.5 sm:pt-0">
                   <div className="font-mono text-xs sm:text-sm font-bold text-[#C27D4B]">
                     {currentChapter.asset1.price}
                   </div>
@@ -267,7 +284,7 @@ export default function Act2ScaleShift() {
               </div>
 
               {/* Asset 2 */}
-              <div className="p-4 bg-[#17191D] border border-white/[0.08] hover:border-[#C27D4B]/50 transition-colors flex items-center justify-between">
+              <div className="p-3.5 sm:p-4 bg-[#17191D] border border-white/[0.08] hover:border-[#C27D4B]/50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
                 <div>
                   <div className="text-[10px] font-mono text-[#C27D4B] uppercase tracking-wider">
                     HIGH-DEMAND FLEET
@@ -279,7 +296,7 @@ export default function Act2ScaleShift() {
                     Tenure: {currentChapter.asset2.tenure}
                   </div>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right border-t sm:border-t-0 border-white/[0.06] pt-1.5 sm:pt-0">
                   <div className="font-mono text-xs sm:text-sm font-bold text-[#C27D4B]">
                     {currentChapter.asset2.price}
                   </div>
@@ -288,23 +305,6 @@ export default function Act2ScaleShift() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Mobile-only switcher tabs */}
-            <div className="flex md:hidden items-center gap-2 mt-6">
-              {chapters.map((ch, idx) => (
-                <button
-                  key={ch.number}
-                  onClick={() => setActiveChapterIndex(idx)}
-                  className={`flex-1 py-2 text-xs font-mono uppercase tracking-wider transition-all border ${
-                    activeChapterIndex === idx
-                      ? 'bg-[#C27D4B] text-[#0E0F11] font-bold border-[#C27D4B]'
-                      : 'bg-[#17191D] text-white/50 border-white/10'
-                  }`}
-                >
-                  {ch.number} {ch.category.split(' ')[0]}
-                </button>
-              ))}
             </div>
           </div>
 

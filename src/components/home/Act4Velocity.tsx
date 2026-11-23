@@ -95,19 +95,19 @@ export default function Act4Velocity() {
         {/* ========================================================
             PART 1: 48-HOUR VELOCITY TIMELINE
             ======================================================== */}
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-16 sm:py-24 md:py-32">
           {/* Eyebrow & Title */}
-          <div className="max-w-3xl mb-16">
+          <div className="max-w-3xl mb-12 sm:mb-16">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 bg-[#C27D4B]" />
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B]">
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B]">
                 DEPLOYMENT TIMELINE
               </span>
             </div>
-            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#0E0F11] leading-tight">
+            <h2 className="font-sans text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#0E0F11] leading-tight">
               48-Hour Deployment Velocity.
             </h2>
-            <p className="mt-4 text-sm sm:text-base font-normal text-[#0E0F11]/75 leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-base font-normal text-[#0E0F11]/75 leading-relaxed">
               Traditional banking and leasing channels require 4 to 12 weeks of bureaucratic underwriting.
               Firstgen Assets executes end-to-end lease origination in days through algorithmic diligence.
             </p>
@@ -186,14 +186,14 @@ export default function Act4Velocity() {
           {/* ========================================================
               PART 2: FOUNDER'S NOTE
               ======================================================== */}
-          <div className="my-20 p-8 sm:p-12 md:p-16 bg-[#FAF9F6] border border-[#0E0F11]/15 relative overflow-hidden">
-            <div className="max-w-4xl mx-auto flex flex-col gap-6">
+          <div className="my-12 sm:my-20 p-6 sm:p-12 md:p-16 bg-[#FAF9F6] border border-[#0E0F11]/15 relative overflow-hidden">
+            <div className="max-w-4xl mx-auto flex flex-col gap-4 sm:gap-6">
               <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B]">
                 <span className="w-1.5 h-1.5 bg-[#C27D4B]" />
                 <span>Founder&apos;s Perspective</span>
               </div>
 
-              <blockquote className="font-sans text-xl sm:text-2xl md:text-3xl font-light text-[#0E0F11] leading-relaxed tracking-tight italic">
+              <blockquote className="font-sans text-lg sm:text-2xl md:text-3xl font-light text-[#0E0F11] leading-relaxed tracking-tight italic">
                 &ldquo;True wealth is measured not by what you possess, but by what you enable. Firstgen
                 Assets exists to enable — to place the right asset in the right hands at the right time,
                 and to let the business do what it was built to do.&rdquo;
@@ -216,18 +216,18 @@ export default function Act4Velocity() {
               PART 3: QUIET STATIC MONOCHROME INSTITUTIONAL GRID
               (Strictly NO scrolling ticker)
               ======================================================== */}
-          <div className="mt-16">
+          <div className="mt-12 sm:mt-16">
             <div className="text-center mb-6">
               <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#0E0F11]/50">
                 Institutional Integration & Compliance Standards
               </span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               {institutionalBadges.map((badge, bIdx) => (
                 <div
                   key={bIdx}
-                  className="bg-[#FAF9F6] border border-[#0E0F11]/10 py-3.5 px-4 text-center text-xs font-mono text-[#0E0F11]/80 uppercase tracking-wider hover:border-[#C27D4B]/40 transition-colors"
+                  className="bg-[#FAF9F6] border border-[#0E0F11]/10 py-3 sm:py-3.5 px-2.5 sm:px-4 text-center text-[10px] sm:text-xs font-mono text-[#0E0F11]/80 uppercase tracking-wider hover:border-[#C27D4B]/40 transition-colors"
                 >
                   {badge}
                 </div>
@@ -240,16 +240,21 @@ export default function Act4Velocity() {
             PART 4: ARCHITECTURAL FOOTER
             ======================================================== */}
         <footer className="w-full border-t border-[#0E0F11]/12 bg-[#F4F2EE]">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 py-16 lg:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-12 sm:py-16 lg:py-20">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
               {/* Col 1: Company Info with firstgen-logo-transparent.png on Limestone */}
               <div className="md:col-span-4 flex flex-col gap-4">
-                <div className="relative w-44 h-11">
+                <div
+                  className="relative w-44 h-11 max-w-[176px]"
+                  style={{ position: 'relative', width: '176px', height: '44px', maxWidth: '100%' }}
+                >
                   <Image
                     src={getAssetPath('/images/firstgen-logo-transparent.png')}
                     alt="Firstgen Assets Private Limited"
                     fill
+                    sizes="176px"
                     className="object-contain object-left"
+                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                   />
                 </div>
                 <p className="text-xs font-sans text-[#0E0F11]/75 leading-relaxed max-w-sm">

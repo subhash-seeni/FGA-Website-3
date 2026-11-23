@@ -1,7 +1,15 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import SmoothScrollProvider from '@/components/SmoothScrollProvider';
 import LeaseConcierge from '@/components/LeaseConcierge';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#0E0F11',
+};
 
 export const metadata: Metadata = {
   title: 'Firstgen Assets Private Limited | Operating Lease Infrastructure | Ahmedabad',

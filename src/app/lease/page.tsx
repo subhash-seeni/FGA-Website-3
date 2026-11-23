@@ -53,30 +53,30 @@ export default function LeaseCataloguePage() {
       {/* ========================================================
           HERO & FILTER HEADER
           ======================================================== */}
-      <section data-nav-theme="dark" className="pt-36 pb-16 md:pt-44 md:pb-20 border-b border-[#C27D4B]/20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B] mb-3">
+      <section data-nav-theme="dark" className="pt-28 pb-12 sm:pt-36 sm:pb-16 md:pt-44 md:pb-20 border-b border-[#C27D4B]/20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+          <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B] mb-3">
             <span className="w-2 h-2 rounded-full bg-[#C27D4B]" />
             <span>Corporate Portfolio // 24 Institutional Assets</span>
           </div>
 
-          <h1 className="font-sans font-bold text-4xl sm:text-6xl md:text-7xl tracking-tighter text-[#F4F2EE] leading-[0.98]">
+          <h1 className="font-sans font-bold text-3xl sm:text-5xl md:text-7xl tracking-tighter text-[#F4F2EE] leading-[0.98]">
             Operating Lease Catalogue.
           </h1>
 
-          <p className="mt-4 text-sm sm:text-base font-light text-[#F4F2EE]/75 max-w-2xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base font-light text-[#F4F2EE]/75 max-w-2xl leading-relaxed">
             All 24 corporate assets are structured as true off-balance-sheet operating leases. Zero
             down payment, 100% tax-deductible operational expenditure under Section 37(1), and
             guaranteed 48-hour SLA deployment from our Ahmedabad hub.
           </p>
 
           {/* Interactive Category Filter Pills & Search */}
-          <div className="mt-10 pt-8 border-t border-[#C27D4B]/20 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
-            {/* Category Buttons */}
-            <div className="flex items-center gap-2 flex-wrap">
+          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-[#C27D4B]/20 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 sm:gap-6">
+            {/* Category Buttons (Horizontally scrollable on mobile) */}
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-4 px-4 sm:mx-0 sm:px-0">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`py-2 px-4 text-xs font-mono uppercase tracking-wider transition-all border ${
+                className={`py-2 px-3.5 sm:px-4 text-[11px] sm:text-xs font-mono uppercase tracking-wider transition-all border whitespace-nowrap min-h-[40px] flex items-center ${
                   selectedCategory === 'all'
                     ? 'bg-[#C27D4B] text-[#0E0F11] font-bold border-[#C27D4B]'
                     : 'bg-[#17191D] text-white/60 border-white/10 hover:border-[#C27D4B]/40 hover:text-white'
@@ -93,7 +93,7 @@ export default function LeaseCataloguePage() {
                     <button
                       key={slug}
                       onClick={() => setSelectedCategory(slug)}
-                      className={`py-2 px-4 text-xs font-mono uppercase tracking-wider transition-all border ${
+                      className={`py-2 px-3.5 sm:px-4 text-[11px] sm:text-xs font-mono uppercase tracking-wider transition-all border whitespace-nowrap min-h-[40px] flex items-center ${
                         isSel
                           ? 'bg-[#C27D4B] text-[#0E0F11] font-bold border-[#C27D4B]'
                           : 'bg-[#17191D] text-white/60 border-white/10 hover:border-[#C27D4B]/40 hover:text-white'
@@ -107,19 +107,19 @@ export default function LeaseCataloguePage() {
             </div>
 
             {/* Search and Sort */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 w-full lg:w-auto">
               <input
                 type="text"
                 placeholder="Search assets or specs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-[#17191D] border border-white/15 px-3.5 py-2 text-xs font-mono text-[#F4F2EE] placeholder-white/40 focus:outline-none focus:border-[#C27D4B] transition-colors w-full sm:w-60"
+                className="bg-[#17191D] border border-white/15 px-3.5 py-2 text-sm sm:text-xs font-mono text-[#F4F2EE] placeholder-white/40 focus:outline-none focus:border-[#C27D4B] transition-colors flex-1 sm:w-60 min-h-[40px]"
               />
 
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as 'default' | 'price-asc' | 'price-desc')}
-                className="bg-[#17191D] border border-white/15 px-3 py-2 text-xs font-mono text-[#F4F2EE] focus:outline-none focus:border-[#C27D4B] cursor-pointer"
+                className="bg-[#17191D] border border-white/15 px-3 py-2 text-sm sm:text-xs font-mono text-[#F4F2EE] focus:outline-none focus:border-[#C27D4B] cursor-pointer min-h-[40px]"
               >
                 <option value="default">Default Sort</option>
                 <option value="price-asc">Price: Low to High</option>
@@ -133,8 +133,8 @@ export default function LeaseCataloguePage() {
       {/* ========================================================
           ASSETS GRID (24 ASSETS)
           ======================================================== */}
-      <section data-nav-theme="dark" className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <section data-nav-theme="dark" className="py-12 sm:py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
           <div className="flex items-center justify-between text-xs font-mono text-[#F4F2EE]/50 mb-8 pb-3 border-b border-white/[0.08]">
             <span>Showing {filteredAssets.length} of 24 Institutional Assets</span>
             <span className="text-[#C27D4B]">Ahmedabad Staging Hub</span>

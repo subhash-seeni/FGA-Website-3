@@ -205,7 +205,7 @@ export default function LeaseConcierge() {
         <div
           role="dialog"
           aria-label="Firstgen Operating Lease Concierge"
-          className="fixed bottom-20 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-6.5rem)] bg-[#0E0F11] border border-[#C27D4B] shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
+          className="fixed inset-x-3 sm:inset-x-auto sm:right-6 bottom-16 sm:bottom-20 z-50 w-auto sm:w-[380px] h-[480px] sm:h-[520px] max-h-[calc(100dvh-5rem)] bg-[#0E0F11] border border-[#C27D4B] shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200"
         >
           {/* Header */}
           <div className="bg-[#17191D] px-4 py-3 border-b border-[#C27D4B]/30 flex items-center justify-between">
@@ -317,7 +317,7 @@ export default function LeaseConcierge() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask about pricing, 48h delivery, docs..."
-              className="bg-[#0E0F11] border border-white/15 px-3 py-2 text-xs font-mono text-[#F4F2EE] placeholder-white/30 focus:outline-none focus:border-[#C27D4B] flex-1"
+              className="bg-[#0E0F11] border border-white/15 px-3 py-2 text-sm sm:text-xs font-mono text-[#F4F2EE] placeholder-white/30 focus:outline-none focus:border-[#C27D4B] flex-1"
               disabled={isLoading}
             />
 
@@ -338,11 +338,11 @@ export default function LeaseConcierge() {
       )}
 
       {/* ========================================================
-          2. STICKY TRIGGER BUTTON (bottom-6 right-6 z-50)
+          2. STICKY TRIGGER BUTTON (bottom-4 right-4 sm:bottom-6 sm:right-6 z-50)
           ======================================================== */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-[#0E0F11] border border-[#C27D4B] hover:border-[#D89564] shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 group"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[#0E0F11] border border-[#C27D4B] hover:border-[#D89564] shadow-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2.5 p-3 sm:px-4 sm:py-2.5 group"
         aria-label={isOpen ? 'Close Firstgen Concierge' : 'Open Firstgen Concierge'}
       >
         <span className="relative flex h-2 w-2">

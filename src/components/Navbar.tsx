@@ -124,17 +124,23 @@ export default function Navbar({ theme = 'auto', onBeginLease }: NavbarProps) {
             : 'py-5 bg-transparent border-b border-[#0E0F11]/[0.08]'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between">
           {/* Left: Brand Logo using firstgen-logo-transparent */}
           <Link href="/" className="group flex items-center select-none" aria-label="Firstgen Assets Homepage">
-            <div className="relative h-8 md:h-9 w-40 md:w-48">
+            <div
+              className="relative h-7 sm:h-8 md:h-9 w-32 sm:w-40 md:w-48 max-w-[192px]"
+              style={{ position: 'relative', width: '150px', height: '34px', maxWidth: '100%' }}
+            >
               <Image
                 src={getAssetPath('/images/firstgen-logo-transparent.png')}
                 alt="Firstgen Assets"
                 fill
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
                 className="object-contain object-left transition-all duration-300"
                 style={{
                   filter: isDark ? 'invert(1) hue-rotate(180deg)' : 'none',
+                  maxHeight: '100%',
+                  maxWidth: '100%',
                 }}
                 priority
               />
@@ -172,13 +178,13 @@ export default function Navbar({ theme = 'auto', onBeginLease }: NavbarProps) {
           </nav>
 
           {/* Right: Minimal Pill CTA & Mobile Hamburger */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Link
               href="/lease"
               onClick={() => {
                 if (onBeginLease) onBeginLease();
               }}
-              className={`relative inline-flex items-center justify-center px-4 md:px-5 py-2 text-xs font-mono uppercase tracking-[0.15em] rounded-full transition-all duration-300 active:scale-[0.98] ${
+              className={`relative inline-flex items-center justify-center px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] rounded-full transition-all duration-300 active:scale-[0.98] ${
                 isDark
                   ? 'text-[#F4F2EE] border border-[#C27D4B]/80 hover:bg-[#C27D4B] hover:text-[#0E0F11] hover:border-[#C27D4B]'
                   : 'text-[#0E0F11] border border-[#0E0F11]/80 hover:bg-[#0E0F11] hover:text-[#F4F2EE] hover:border-[#0E0F11]'
@@ -187,10 +193,10 @@ export default function Navbar({ theme = 'auto', onBeginLease }: NavbarProps) {
               Begin Lease
             </Link>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Button (Accessible 44x44px touch target) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 focus:outline-none transition-colors ${
+              className={`md:hidden w-11 h-11 flex items-center justify-center rounded focus:outline-none transition-colors ${
                 isDark ? 'text-[#F4F2EE] hover:text-[#C27D4B]' : 'text-[#0E0F11] hover:text-[#C27D4B]'
               }`}
               aria-label="Toggle navigation menu"
@@ -223,19 +229,23 @@ export default function Navbar({ theme = 'auto', onBeginLease }: NavbarProps) {
 
       {/* Sleek Full-Screen Obsidian Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0E0F11] md:hidden flex flex-col justify-between p-8 transition-transform duration-500 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-[#0E0F11] md:hidden flex flex-col justify-between p-6 sm:p-8 pt-20 pb-safe overflow-y-auto transition-transform duration-500 ease-in-out ${
           mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
         <div className="pt-20 flex flex-col gap-6">
           <div className="pb-4 border-b border-[#C27D4B]/20">
-            <div className="relative h-8 w-44 mb-2">
+            <div
+              className="relative h-8 w-44 mb-2 max-w-[176px]"
+              style={{ position: 'relative', width: '176px', height: '32px', maxWidth: '100%' }}
+            >
               <Image
                 src={getAssetPath('/images/firstgen-logo-transparent.png')}
                 alt="Firstgen Assets"
                 fill
+                sizes="176px"
                 className="object-contain object-left"
-                style={{ filter: 'invert(1) hue-rotate(180deg)' }}
+                style={{ filter: 'invert(1) hue-rotate(180deg)', maxHeight: '100%', maxWidth: '100%' }}
               />
             </div>
             <div className="text-[10px] font-mono tracking-[0.2em] text-[#C27D4B]">

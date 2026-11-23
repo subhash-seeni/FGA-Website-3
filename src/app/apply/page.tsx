@@ -258,8 +258,26 @@ function FiveStepApplicationInner() {
 
   return (
     <div className="w-full">
-      {/* Monospace Step Progress Bar */}
-      <div className="mb-12 border border-[#C27D4B]/30 bg-[#17191D] p-3 sm:p-4 overflow-x-auto">
+      {/* Mobile Compact Step Indicator */}
+      <div className="sm:hidden mb-8 border border-[#C27D4B]/30 bg-[#17191D] p-4">
+        <div className="flex items-center justify-between text-xs font-mono">
+          <span className="text-[#C27D4B] font-bold">
+            STEP 0{currentStep} / 05
+          </span>
+          <span className="text-white/80 font-medium">
+            {stepsList[currentStep - 1].title}
+          </span>
+        </div>
+        <div className="w-full h-1 bg-white/10 mt-3 overflow-hidden">
+          <div
+            className="h-full bg-[#C27D4B] transition-all duration-300"
+            style={{ width: `${(currentStep / 5) * 100}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Desktop/Tablet Monospace Step Progress Bar */}
+      <div className="hidden sm:block mb-12 border border-[#C27D4B]/30 bg-[#17191D] p-3 sm:p-4 overflow-x-auto">
         <div className="flex items-center justify-between min-w-[640px] text-xs font-mono">
           {stepsList.map((step, idx) => {
             const stepNum = idx + 1;
@@ -1332,8 +1350,8 @@ export default function ApplyPage() {
     <main data-nav-theme="dark" className="relative min-h-screen bg-[#0E0F11] text-[#F4F2EE] selection:bg-[#C27D4B] selection:text-[#0E0F11]">
       <Navbar />
 
-      <section data-nav-theme="dark" className="pt-36 pb-24 md:pt-44 md:pb-32 border-b border-[#C27D4B]/20">
-        <div className="max-w-5xl mx-auto px-6 md:px-10">
+      <section data-nav-theme="dark" className="pt-28 pb-16 sm:pt-36 sm:pb-24 md:pt-44 md:pb-32 border-b border-[#C27D4B]/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-10">
           {/* Header */}
           <div className="mb-10">
             <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-[#C27D4B] mb-2">
