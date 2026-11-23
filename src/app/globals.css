@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --obsidian: #0E0F11;
+  --limestone: #F4F2EE;
+  --copper: #C27D4B;
+  --slate-surface: #17191D;
+  --font-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Base ergonomics */
+html {
+  background-color: #0E0F11;
+  color: #F4F2EE;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0E0F11;
+  color: #F4F2EE;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Tactile selection styling */
+::selection {
+  background-color: #C27D4B;
+  color: #0E0F11;
+}
+
+/* Slender brutalist scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0E0F11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C27D4B;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D89564;
+}
+
+/* Monospace numerals alignment */
+.tabular-numbers {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle hairline utilities */
+.border-copper-hairline {
+  border-color: rgba(194, 125, 75, 0.2);
+}
+
+.border-light-hairline {
+  border-color: rgba(14, 15, 17, 0.12);
+}
